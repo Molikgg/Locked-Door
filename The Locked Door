@@ -5,13 +5,13 @@ door.SwitchdoorState();
 class Door
 {
     private string Password { get; set; }
+    DoorState doorstate { get; set; } = DoorState.Open;
     public Door(string password)
     {
         Password = password;
     }
     public void SwitchdoorState()
     {
-        DoorState doorstate = DoorState.Open;
 
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Type -> 'Change Password' To Change the current Password!");
@@ -70,6 +70,9 @@ class Door
         {
             Console.WriteLine("Incorrect password:");
             Console.WriteLine("Type -> 'Change Password' To Try Again");
+            Console.WriteLine("Press anything else to Continue");
+            if(Console.ReadLine()!.ToLower() != "change password") { SwitchdoorState(); }
+            else { ChangePassword(); }
         }
     }
 }
