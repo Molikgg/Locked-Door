@@ -69,9 +69,11 @@ class Door
         else
         {
             Console.WriteLine("Incorrect password:");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Type -> 'Change Password' To Try Again");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Press anything else to Continue");
-            if(Console.ReadLine()!.ToLower() != "change password") { SwitchdoorState(); }
+            if (Console.ReadLine()!.ToLower() != "change password") { SwitchdoorState(); }
             else { ChangePassword(); }
         }
     }
